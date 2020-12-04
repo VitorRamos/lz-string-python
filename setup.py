@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, Extension
 
 import io
 
@@ -14,6 +14,9 @@ setup(
   package_dir={'lzstring': 'lzstring'},
   package_data={},
   long_description=long_description,
+  ext_modules=[
+    Extension("lzstring.cdecompress", sources=["lzstring/_decompress.cpp"])
+  ],
   url='https://github.com/gkovacs/lz-string-python',
   download_url='https://github.com/gkovacs/lz-string-python',
   keywords=['lz-string', 'lzstring', 'compression'],

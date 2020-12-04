@@ -14,6 +14,7 @@ from builtins import object
 import math
 import re
 
+from lzstring.cdecompress import decompress64
 
 keyStrBase64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 keyStrUriSafe = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$"
@@ -434,7 +435,7 @@ class LZString(object):
             return ""
         if compressed == "":
             return None
-        return _decompress(len(compressed), 32, lambda index: getBaseValue(keyStrBase64, compressed[index]))
+        return decompress64(compressed)
 
     @staticmethod
     def decompressFromEncodedURIComponent(compressed):
