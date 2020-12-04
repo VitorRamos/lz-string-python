@@ -1,4 +1,4 @@
-lz-string-python
+lz-string-python with C extensions for decompress
 ================
 
 lz-string for python 2/3
